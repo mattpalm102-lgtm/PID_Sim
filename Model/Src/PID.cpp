@@ -30,3 +30,50 @@
  ******************************************************************************/
 
 #include "PID.hpp"
+
+// -----------------------------------------------------------------------------
+// Constructor
+// -----------------------------------------------------------------------------
+PID::PID(double kp_, double ki_, double kd_)
+    : kp(kp_),
+      ki(ki_),
+      kd(kd_),
+      integral(0.0),
+      prev_error(0.0)
+{
+}
+
+// -----------------------------------------------------------------------------
+// Main PID update
+// -----------------------------------------------------------------------------
+double PID::Update(double setpoint, double measurement, double dt, double& control_output)
+{
+    double error = setpoint - measurement;
+
+    // Proportional term
+    double p = kp * error;
+
+    // Integral term
+    integral += error * dt;
+    double i = ki * integral;
+
+    // Derivative term
+    double derivative = (dt > 0.0) ? (error - prev_error) / dt : 0.0;
+    double d = kd * derivative;
+
+    prev_error = error;
+
+    // Compute final output
+    control_output = p + i + d;
+
+    return control_output;
+}
+
+// -----------------------------------------------------------------------------
+// Reset internal state
+// -----------------------------------------------------------------------------
+void PID::Reset() noexcept
+{
+    integral = 0.0;
+    prev_error = 0.0;
+}

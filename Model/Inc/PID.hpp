@@ -51,18 +51,17 @@ class PID {
         double Update(double setpoint, double measurement, double dt, double& control_output);
         void Reset() noexcept;
 
-
     private:
         // ------------------------------------------------------------------
         // ----- PRIVATE DATA MEMBERS ---------------------------------------
         // ------------------------------------------------------------------
-        
+
         double kp;
         double ki;
         double kd;
     
-        double integral_;
-        double prev_error_;
+        double integral;
+        double prev_error;
 
 };
 
