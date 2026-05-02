@@ -38,11 +38,12 @@ This is widely used in:
 ---
 
 ## Project Structure
+```!
 Model/
 ├── Inc/ # Public headers (interfaces)
 ├── Src/ # Implementation + CLI application
 ├── CMakeLists.txt
-
+```
 
 Core components:
 
