@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.20)
+
+project(PIDModel
+    VERSION 0.1.0
+    DESCRIPTION "PID controller core model library"
+    LANGUAGES CXX
+)
+
+# C++ standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Enable testing (for later)
+enable_testing()
+
+# Add source directory
+add_subdirectory(Src)
