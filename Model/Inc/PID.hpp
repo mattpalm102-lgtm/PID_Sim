@@ -29,7 +29,41 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  ******************************************************************************/
 
- #ifndef PIDSIM_PID_H
- #define PIDSIM_PID_H
+#ifndef PIDSIM_PID_H
+#define PIDSIM_PID_H
+ 
+#include <vector>
 
- #endif //PIDSIM_PID_H
+class PID {
+
+    public:
+        // ------------------------------------------------------------------
+        // ----- CONSTRUCTOR / DESTRUCTOR -----------------------------------
+        // ------------------------------------------------------------------
+
+        PID(double kp_, double ki_, double kd_);
+        ~PID() = default;
+        
+        // ------------------------------------------------------------------
+        // ----- PUBLIC METHODS ---------------------------------------------
+        // ------------------------------------------------------------------
+
+        double Update(double setpoint, double measurement, double dt, double& control_output);
+        void Reset() noexcept;
+
+
+    private:
+        // ------------------------------------------------------------------
+        // ----- PRIVATE DATA MEMBERS ---------------------------------------
+        // ------------------------------------------------------------------
+        
+        double kp;
+        double ki;
+        double kd;
+    
+        double integral_;
+        double prev_error_;
+
+};
+
+#endif //PIDSIM_PID_H
