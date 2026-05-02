@@ -75,3 +75,8 @@ Avoid tightly coupling components
 ## License
 
 GNU Lesser General Public (see LICENSE)
+
+## Known Issues
+
+- PlantTest.SecondOrderOutputChangesWithInput unit test failed
+- PlantTest.SecondOrderOverdampedReachesSetpoint unit test failed
