@@ -18,30 +18,12 @@ It is designed to help users:
 
 ---
 
-## What is a PID Controller?
-
-A PID controller continuously adjusts an output to reduce the error between a desired value (setpoint) and a measured system value.
-
-It uses three terms:
-
-- **Proportional (P):** reacts to current error
-- **Integral (I):** reacts to accumulated error over time
-- **Derivative (D):** reacts to rate of change of error
-
-This is widely used in:
-- Motor control
-- Robotics
-- Aerospace systems
-- Temperature regulation
-- Industrial automation
-
----
-
 ## Project Structure
 ```!
 Model/
 ├── Inc/ # Public headers (interfaces)
 ├── Src/ # Implementation + CLI application
+├── Test/ # Google Test unit test suite
 ├── CMakeLists.txt
 ```
 
@@ -66,15 +48,30 @@ Core components:
 ### Build Steps
 
 ```bash
-# Step 1: Enter project directory
-cd Model
-
-# Step 2: Create build folder
-mkdir build
-cd build
-
-# Step 3: Configure project
+git clone https://github.com/mattpalm102-lgtm/PID_Sim.git
+cd PID_Sim
+mkdir build && cd build
 cmake ..
-
-# Step 4: Build
 cmake --build .
+```
+### Running the Simulator
+
+After building:
+
+```bash
+./pidsim
+```
+
+## Contributing
+
+PRs are welcome. Keep changes focused and readable.
+
+If you add functionality:
+
+Include tests
+Keep interfaces clean
+Avoid tightly coupling components
+
+## License
+
+GNU Lesser General Public (see LICENSE)
